@@ -1,0 +1,60 @@
+.font-roboto {
+  font-family: "Roboto", sans-serif;
+}
+.font-serif {
+  font-family: serif;
+}
+.bg-dark-full {
+  background-color: rgb(0, 0, 0);
+}
+.page-enter {
+  animation: fadeZoom 2s ease-out forwards;
+}
+.page-enter {
+  animation: fadeZoom 1s ease-out forwards;
+}
+.w-55 {
+  width: 550px;
+}
+.h-73 {
+  height: 725px;
+}
+@keyframes fadeZoom {
+  from {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.round-button {
+  height: 40px;
+  width: 100px;
+  border-radius: 10px;
+  background-color: #4bbb41;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 10px;
+  border: none;
+}
+.text-color {
+  font-weight: 600;
+  font-size: 50px;
+  color: #5bc151;
+  margin-top: 230px;
+}
+.text-color-sm {
+  font-weight: 600;
+  font-size: 30px;
+  color: #7bd273;
+}
+.bg-image {
+  background-image: url("./../images/forest-image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 300px;
+}
