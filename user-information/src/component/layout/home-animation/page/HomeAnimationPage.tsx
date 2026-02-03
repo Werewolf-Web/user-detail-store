@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import "../../../../assets/styles/main.css";
+import "../../../../../public/assets/styles/main.css";
 
 const HomeAnimationPage = () => {
   const navigate = useNavigate();
