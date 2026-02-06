@@ -1,4 +1,4 @@
-import { Bounce, ToastContainer, toast } from "react-toastify";
+import { Bounce, toast, ToastContainer } from "react-toastify";
 import "../../../../public/assets/styles/main.css";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
@@ -9,40 +9,48 @@ const initialValues: Loginform = {
   password: "",
 };
 
+const REGISTER_API = import.meta.env.VITE_REGISTER_API;
+// console.log(REGISTER_API);
+
 const LoginPage = () => {
   const navigate = useNavigate();
-  const { values, errors, touched, resetForm,handleBlur, handleChange, handleSubmit } =
-    useFormik({
-      initialValues: initialValues,
-      validationSchema: loginSchema,
-      onSubmit: (values) => {
-        console.log(values);
-        console.log(errors);
-        const playload: Loginform = {
-          email: values.email,
-          password: values.password,
-        };
-        console.log("====", playload);
-        const LocalUser = JSON.parse(
-          localStorage.getItem("Total_user") || "[]",
+  const {
+    values,
+    errors,
+    touched,
+    resetForm,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+  } = useFormik({
+    initialValues: initialValues,
+    validationSchema: loginSchema,
+
+    onSubmit: async (values) => {
+      const playload: Loginform = {
+        email: values.email,
+        password: values.password,
+      };
+      try {
+        const checkRes = await fetch(
+          `${REGISTER_API}/register?email=${playload.email}&password=${playload.password}`,
         );
-          const CurentUser = JSON.parse(
-          localStorage.getItem("Current_user") || "[]",
-        );
-        if (
-          LocalUser.map((use: Loginform) => use.email).includes(values.email) ||  LocalUser.map((use: Loginform) => use.password).includes(values.password) 
-        ) {
-                CurentUser.push(playload)
-        localStorage.setItem("Current_user",JSON.stringify(CurentUser));
+
+        const existingUsers = await checkRes.json();
+        // console.log(existingUsers.id);
+        if (existingUsers.length === 0) {
+          toast.error("Email & Password not match ! ");
+          return;
+        }
+        localStorage.setItem("Current_user", JSON.stringify(existingUsers));
         resetForm();
-          toast.success("Login Success .. !");
-          navigate("/auth/register")
-        }
-        else{
-          toast.error("Please Enter Valid Email And Password !");
-        }
-      },
-    });
+        toast.success("Login Success .. !");
+        navigate("/dashbord");
+      } catch {
+        toast.error("something want wrong!");
+      }
+    },
+  });
 
   return (
     <>
@@ -111,11 +119,7 @@ const LoginPage = () => {
                 )}
               </div>
 
-              <button
-                type="submit"
-                className="btn btn-primary w-100"
-              
-              >
+              <button type="submit" className="btn btn-primary w-100">
                 Login
               </button>
               <p className="text-center">

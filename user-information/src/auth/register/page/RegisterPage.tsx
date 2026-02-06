@@ -2,44 +2,80 @@ import "../../../../public/assets/styles/main.css";
 import { useNavigate } from "react-router-dom";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import { useFormik } from "formik";
-import { signUpSchema, type RegisterForm ,type ForOther} from "../core/_module";
-
+import { signUpSchema, type RegisterForm } from "../core/_module";
 const initialValues: RegisterForm = {
+  id: "",
   name: "",
   email: "",
   password: "",
   conform_password: "",
+  address:"",
+  phone_no: "" ,
 };
+
+const REGISTER_API = import.meta.env.VITE_REGISTER_API;
+// console.log(REGISTER_API);
 
 const RegisterPage = () => {
   const navigate = useNavigate();
-  const { values, errors, touched, handleBlur, handleChange,resetForm, handleSubmit } =
-    useFormik({
-      initialValues: initialValues,
-      validationSchema: signUpSchema,
-      onSubmit: (values) => {
-        const playload: RegisterForm = {
-          name: values.name,
-          email: values.email,
-          password: values.password,
-          conform_password: values.conform_password,
-        };
-        console.log("====", playload);
+  const {
+    values,
+    errors,
+    touched,
+    handleBlur,
+    handleChange,
+    resetForm,
+    handleSubmit,
+  } = useFormik({
+    initialValues: initialValues,
+    validationSchema: signUpSchema,
 
-        const LocalUser = JSON.parse(localStorage.getItem("Total_user") || "[]")
-        if(
-          LocalUser.map((use: ForOther) => use.email).includes(values.email)){
-               toast.error("Email allready use")
+    onSubmit: async (values) => {
+      const playload: RegisterForm = {
+        id: new Date().getTime().toString(),
+        name: values.name,
+        email: values.email,
+        password: values.password,
+        conform_password: values.conform_password,
+        address:values.address,
+        phone_no: values.phone_no,
+      };
+
+      const LocalUser = JSON.parse(localStorage.getItem("Total_user") || "[]");
+
+      try {
+        const checkRes = await fetch(
+          `${REGISTER_API}/register?email=${playload.email}`,
+        );
+
+        const existingUsers = await checkRes.json();
+
+        if (existingUsers.length > 0) {
+          toast.error("Email already used!");
+          return;
         }
-        else{
-        LocalUser.push(playload)
-        localStorage.setItem("Total_user",JSON.stringify(LocalUser));
-        resetForm();
-         toast.success("Register successful!")
+        const responce = await fetch(`${REGISTER_API}/register`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(playload),
+        });
+
+        // console.log(playload.email);
+
+        if (responce.ok) {
+          LocalUser.push(playload);
+          localStorage.setItem("Total_user", JSON.stringify(LocalUser));
+          resetForm();
+          toast.success("Register successful!");
+        }
+      } catch (error) {
+        toast.error("something want wrong!");
+        console.error("Server error:", error);
       }
-        console.log(values.email);
-      },
-    });
+    },
+  });
 
   return (
     <>
@@ -64,7 +100,7 @@ const RegisterPage = () => {
             <button
               className="round-button"
               onClick={() => {
-                navigate("/auth/login");
+                navigate("/dashbord");
               }}
             >
               {" "}
@@ -106,7 +142,33 @@ const RegisterPage = () => {
                   <small className="text-danger">{errors.email}</small>
                 )}
               </div>
-
+              <div className="mb-3">
+                <input
+                  type="number"
+                  name="phone_no"
+                  placeholder="Enter phone number"
+                  value={values.phone_no}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className="form-control"
+                />
+                {errors.phone_no && touched.phone_no && (
+                  <small className="text-danger">{errors.phone_no}</small>
+                )}
+              </div>    <div className="mb-3">
+                <input
+                  type="textarea"
+                  name="address"
+                  placeholder="Enter address"
+                  value={values.address}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className="form-control"
+                />
+                {errors.address && touched.address && (
+                  <small className="text-danger">{errors.address}</small>
+                )}
+              </div>
               <div className="mb-3">
                 <input
                   type="password"
@@ -139,11 +201,7 @@ const RegisterPage = () => {
                 )}
               </div>
 
-              <button
-                type="submit"
-                className="btn btn-primary w-100"
-       
-              >
+              <button type="submit" className="btn btn-primary w-100">
                 Register
               </button>
               <p className="text-center">

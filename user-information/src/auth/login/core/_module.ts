@@ -12,6 +12,7 @@ export const loginSchema = Yup.object({
 
 
 export interface Loginform{
+    // id: string,
     email : string,
     password : string
 }

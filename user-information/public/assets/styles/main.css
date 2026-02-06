@@ -32,13 +32,19 @@
 
 .round-button {
   height: 40px;
-  width: 100px;
+  width: 110px;
   border-radius: 10px;
   background-color: #4bbb41;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   margin-top: 10px;
   border: none;
+  transition: transform 0.3s ease;
+}
+:hover.round-button{
+  background-color: #000000;
+  color: white;
+  transform: scale(1.1);
 }
 .text-color {
   font-weight: 600;
