@@ -18,4 +18,5 @@ export interface RegisterForm{
     conform_password : string,
     address:string,
     phone_no : number | string,
+    is_view?:boolean,
 }

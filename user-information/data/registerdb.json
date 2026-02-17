@@ -1,76 +1,24 @@
 {
   "register": [
     {
-      "id": "1770280992452",
-      "name": "Aurelia Hopkins",
-      "email": "zequ@mailinator.com",
+      "id": "1771235537262",
+      "name": "Colleen Kidd",
+      "email": "waxafe@mailinator.com",
       "password": "Pa$$w0rd!",
       "conform_password": "Pa$$w0rd!",
-      "address": "Exercitation nostrud",
-      "phone_no": 1234569874
+      "address": "Assumenda aliqua Ac",
+      "phone_no": 4232323232,
+      "is_view": false
     },
     {
-      "id": "1770281298454",
-      "name": "Ahmed Becker",
-      "email": "holu@mailinator.com",
+      "id": "1771235541185",
+      "name": "Ava Castaneda",
+      "email": "luputuvoru@mailinator.com",
       "password": "Pa$$w0rd!",
       "conform_password": "Pa$$w0rd!",
-      "address": "Neque doloribus cons",
-      "phone_no": 7923232323
-    },
-    {
-      "id": "1770281327063",
-      "name": "Tiger Curry",
-      "email": "radid@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "conform_password": "Pa$$w0rd!",
-      "address": "Quae autem omnis cup",
-      "phone_no": 1245787878
-    },
-    {
-      "id": "1770281395275",
-      "name": "Geoffrey Chan",
-      "email": "qamavow@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "conform_password": "Pa$$w0rd!",
-      "address": "Sint enim ipsa nisi",
-      "phone_no": 7078787878
-    },
-    {
-      "id": "1770281441657",
-      "name": "Demetria Baldwin",
-      "email": "jufylema@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "conform_password": "Pa$$w0rd!",
-      "address": "Eveniet earum odio ",
-      "phone_no": 3012454545
-    },
-    {
-      "id": "1770354209172",
-      "name": "Derek Berger",
-      "email": "labe@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "conform_password": "Pa$$w0rd!",
-      "address": "Elit ex occaecat te",
-      "phone_no": 2423232323
-    },
-    {
-      "id": "1770359206469",
-      "name": "Nerea Merritt",
-      "email": "kupenunita@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "conform_password": "Pa$$w0rd!",
-      "address": "Ut qui cupiditate et",
-      "phone_no": 7423232323
-    },
-    {
-      "id": "1770362578205",
-      "name": "sujal",
-      "email": "admin@commercehope.com",
-      "password": "123456",
-      "conform_password": "123456",
-      "address": "To. Moti jagdhar, bus stop , mahuva , bhavangar",
-      "phone_no": 1236547896
+      "address": "Dolore est nostrud n",
+      "phone_no": 3723232323,
+      "is_view": false
     }
   ]
 }

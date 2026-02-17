@@ -9,8 +9,9 @@ const initialValues: RegisterForm = {
   email: "",
   password: "",
   conform_password: "",
-  address:"",
-  phone_no: "" ,
+  address: "",
+  phone_no: "",
+  is_view: false,
 };
 
 const REGISTER_API = import.meta.env.VITE_REGISTER_API;
@@ -37,8 +38,9 @@ const RegisterPage = () => {
         email: values.email,
         password: values.password,
         conform_password: values.conform_password,
-        address:values.address,
+        address: values.address,
         phone_no: values.phone_no,
+        is_view: false,
       };
 
       const LocalUser = JSON.parse(localStorage.getItem("Total_user") || "[]");

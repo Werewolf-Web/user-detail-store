@@ -3,6 +3,7 @@ import HomeAnimation from "../component/layout/home-animation/HomeAnimation";
 import Login from "../auth/login/Login";
 import Register from "../auth/register/Register";
 import Dashbord from "../component/home/dashbord/Dashbord";
+import EditDetail from "../component/edit-detail/EditDetail";
 
 
 const AppRoutes = () => {
@@ -14,6 +15,7 @@ const AppRoutes = () => {
         <Route path="/auth/register" element={<Register />} />
         <Route path="*" element={"404 Not Found"} />
         <Route path="/dashbord" element={<Dashbord/>}/>
+        <Route path="/add-detail/:id" element={<EditDetail/>}/>
       </Routes>
     </>
   );
