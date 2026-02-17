@@ -1,7 +1,10 @@
 .font-roboto {
   font-family: "Roboto", sans-serif;
 }
-
+.print-container *,
+.print-container {
+  visibility: visible;
+}
 .font-serif {
   font-family: serif;
 }

@@ -4,6 +4,7 @@ import Login from "../auth/login/Login";
 import Register from "../auth/register/Register";
 import Dashbord from "../component/home/dashbord/Dashbord";
 import EditDetail from "../component/edit-detail/EditDetail";
+import ViewDetail from "../component/view-detail/ViewDetail";
 
 
 const AppRoutes = () => {
@@ -16,6 +17,7 @@ const AppRoutes = () => {
         <Route path="*" element={"404 Not Found"} />
         <Route path="/dashbord" element={<Dashbord/>}/>
         <Route path="/add-detail/:id" element={<EditDetail/>}/>
+        <Route path="/view-detail/:id" element={<ViewDetail/>}/>
       </Routes>
     </>
   );

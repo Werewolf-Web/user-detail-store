@@ -6,6 +6,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
+import LocalPrintshopIcon from '@mui/icons-material/LocalPrintshop';
+import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 
 const REGISTER_API = import.meta.env.VITE_REGISTER_API;
 
@@ -42,6 +44,11 @@ const DashbordPage = () => {
   const handleEdit = async (id: string) => {
     console.log("Clicked ID :", id);
     navigate(`/add-detail/${id}`)
+
+  };
+    const handleView = async (id: string) => {
+    console.log("Clicked ID :", id);
+    navigate(`/view-detail/${id}`)
 
   };
   const handleDelete = async (id: string) => {
@@ -96,10 +103,10 @@ const DashbordPage = () => {
           </div>
           <div className="d-flex gap-2">
             <button className="round-button" onClick={handleExport}>
-              Export
+         <DownloadForOfflineIcon/>     Export
             </button>
             <button className="round-button" onClick={handlePrint}>
-              Print
+           <LocalPrintshopIcon/>   Print
             </button>
           </div>
         </div>
@@ -156,7 +163,7 @@ const DashbordPage = () => {
                     {/* View Column */}
                     <td className="text-center no-print">
                       {item.is_view ? (
-                        <button className="btn btn-sm btn-info mt-2">
+                        <button className="btn btn-sm btn-info mt-2"  onClick={() => handleView(item.id)}>
                           View
                         </button>
                       ) : (
