@@ -9,7 +9,6 @@ const initialValues: RegisterForm = {
   email: "",
   password: "",
   conform_password: "",
-  address: "",
   phone_no: "",
   is_view: false,
 };
@@ -38,7 +37,6 @@ const RegisterPage = () => {
         email: values.email,
         password: values.password,
         conform_password: values.conform_password,
-        address: values.address,
         phone_no: values.phone_no,
         is_view: false,
       };
@@ -94,126 +92,122 @@ const RegisterPage = () => {
         theme="dark"
         transition={Bounce}
       />
-      <div className="d-flex h-100 w-100  bg-ccc">
-        <div className="font-serif   bg-image d-image-none">
-          <div className="text-center">
-            <h1 className="text-color">Get Start</h1>
-            <h3 className="text-color-sm">Allready have an account !</h3>
-            <button
-              className="round-button"
-              onClick={() => {
-                navigate("/dashbord");
-              }}
-            >
-              {" "}
-              Login Here..
-            </button>
-          </div>
-        </div>
-        <div className="col-md-6 d-flex justify-content-center align-items-center">
-          <div className="card shadow p-4 w-75">
-            <h3 className="text-center mb-4">Register Here</h3>
-
-            <form onSubmit={handleSubmit}>
-              <div className="mb-3">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Enter name"
-                  value={values.name}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className="form-control"
-                />
-                {errors.name && touched.name && (
-                  <small className="text-danger">{errors.name}</small>
-                )}
-              </div>
-
-              <div className="mb-3">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Enter email"
-                  value={values.email}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className="form-control"
-                />
-                {errors.email && touched.email && (
-                  <small className="text-danger">{errors.email}</small>
-                )}
-              </div>
-              <div className="mb-3">
-                <input
-                  type="number"
-                  name="phone_no"
-                  placeholder="Enter phone number"
-                  value={values.phone_no}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className="form-control"
-                />
-                {errors.phone_no && touched.phone_no && (
-                  <small className="text-danger">{errors.phone_no}</small>
-                )}
-              </div>    <div className="mb-3">
-                <input
-                  type="textarea"
-                  name="address"
-                  placeholder="Enter address"
-                  value={values.address}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className="form-control"
-                />
-                {errors.address && touched.address && (
-                  <small className="text-danger">{errors.address}</small>
-                )}
-              </div>
-              <div className="mb-3">
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Enter password"
-                  value={values.password}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className="form-control"
-                />
-                {errors.password && touched.password && (
-                  <small className="text-danger">{errors.password}</small>
-                )}
-              </div>
-
-              <div className="mb-3">
-                <input
-                  type="password"
-                  name="conform_password"
-                  placeholder="Conform password"
-                  value={values.conform_password}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className="form-control"
-                />
-                {errors.conform_password && touched.conform_password && (
-                  <small className="text-danger">
-                    {errors.conform_password}
-                  </small>
-                )}
-              </div>
-
-              <button type="submit" className="btn btn-primary w-100">
-                Register
+      <div className="center-all ">
+        <div className="d-flex bg-darker container">
+          <div className="font-serif   bg-image d-image-none">
+            <div className="text-center">
+              <h1 className="text-color">Get Start</h1>
+              <h3 className="text-color-sm">Allready have an account !</h3>
+              <button
+                className="round-button"
+                onClick={() => {
+                  navigate("/dashbord");
+                }}
+              >
+                {" "}
+                Login Here..
               </button>
-              <p className="text-center">
-                Do you have an account !{" "}
-                <a href="/auth/login" className="text-decoration-none">
-                  {" "}
-                  Login
-                </a>
-              </p>
-            </form>
+            </div>
+          </div>
+          <div className="col-md-6 d-flex justify-content-center align-items-center">
+            <div className=" p-4 w-75">
+              <h3 className="text-center mb-4 font-serif text-title">Create an account !</h3>
+
+              <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter name"
+                    value={values.name}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className="form-input form-control"
+                  />
+                  {errors.name && touched.name && (
+                    <small className="text-danger">{errors.name}</small>
+                  )}
+                </div>
+
+                <div className="mb-3">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter email"
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className="form-input form-control"
+                  />
+                  {errors.email && touched.email && (
+                    <small className="text-danger">{errors.email}</small>
+                  )}
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="number"
+                    name="phone_no"
+                    placeholder="Enter phone number"
+                    value={values.phone_no}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className="form-input form-control"
+                  />
+                  {errors.phone_no && touched.phone_no && (
+                    <small className="text-danger">{errors.phone_no}</small>
+                  )}
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter password"
+                    value={values.password}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className="form-input form-control"
+                  />
+                  {errors.password && touched.password && (
+                    <small className="text-danger">{errors.password}</small>
+                  )}
+                </div>
+
+                <div className="mb-3">
+                  <input
+                    type="password"
+                    name="conform_password"
+                    placeholder="Conform password"
+                    value={values.conform_password}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className="form-input form-control"
+                  />
+                  {errors.conform_password && touched.conform_password && (
+                    <small className="text-danger">
+                      {errors.conform_password}
+                    </small>
+                  )}
+                </div>
+
+                <label className="m-1">
+                  <input type="checkbox" defaultChecked />{" "}
+                  <span className="text-white pb-5">I agree to the <a href="#">Terms & Conditions</a></span>
+                </label>
+
+
+
+                <button type="submit" className="btn btn-primary w-100 from-button">
+                  Create account
+                </button><br />
+                <p className="text-center text-white m-2">
+                  Do you have an account !{" "}
+                  <a href="/auth/login" className="text-decoration-none">
+                    {" "}
+                    Login
+                  </a>
+                </p>
+              </form>
+            </div>
           </div>
         </div>
       </div>

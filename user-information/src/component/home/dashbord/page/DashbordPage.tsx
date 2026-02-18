@@ -34,13 +34,22 @@ const DashbordPage = () => {
     id: item.id,
     name: item.name,
     email: item.email,
-    address: item.address,
     phone_no: item.phone_no,
   }));
 
-  const handleSerch = () => {
-    console.log("search :", searchh)
-  }
+const handleSearch = async () => {
+  const res = await fetch(`${REGISTER_API}/register`);
+  const data = await res.json();
+
+  const filtered = data.filter((user: any) =>
+    user.name?.toLowerCase().includes(searchh.toLowerCase().trim()) ||
+    user.email?.toLowerCase().includes(searchh.toLowerCase().trim())
+
+  );
+
+  setTableData(filtered);
+};
+
   const handleEdit = async (id: string) => {
     console.log("Clicked ID :", id);
     navigate(`/add-detail/${id}`)
@@ -85,40 +94,39 @@ const DashbordPage = () => {
   };
   return (
     <>
-      <div className="container my-5">
+      <div className="center-all">
+         <div className=" bg-darker-edit1 container">
         <div className="d-flex justify-content-between align-items-center no-print mb-2">
-          <div>
+          <div className="d-flex flex-wrap gap-2">
             <input
               type="text"
               placeholder="Search"
-              className="search-table"
+              className="search-table for-input"
               value={searchh}
               onChange={(e) => setSearchh(e.target.value)}
 
             />
 
-            <button className="round-button" onClick={handleSerch} >
+            <button className="round-button" onClick={handleSearch} >
               <SearchIcon />
             </button>
-          </div>
-          <div className="d-flex gap-2">
             <button className="round-button" onClick={handleExport}>
-         <DownloadForOfflineIcon/>     Export
+         <DownloadForOfflineIcon/>Export
             </button>
             <button className="round-button" onClick={handlePrint}>
-           <LocalPrintshopIcon/>   Print
+           <LocalPrintshopIcon/>Print
             </button>
           </div>
+         
         </div>
 
-        <div className="table-responsive print-container">
+        <div className="table-responsive print-container border-rounded">
           <table className="table  table-hover ">
             <thead className="table table-active">
               <tr>
                 <th>Sr No.</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Address</th>
                 <th>Phone number</th>
                 <th className="no-print">Action</th>
                 <th className="no-print">View Detail</th>
@@ -138,7 +146,6 @@ const DashbordPage = () => {
                     <td>{index + 1}</td>
                     <td>{item.name}</td>
                     <td>{item.email}</td>
-                    <td>{item.address}</td>
                     <td>{item.phone_no}</td>
 
                     {/* Edit + Delete Column */}
@@ -150,8 +157,6 @@ const DashbordPage = () => {
                       >
                         Edit
                       </button>
-
-
                       <button
                         className="btn btn-sm btn-danger mt-2 ms-2"
                         onClick={() => handleDelete(item.id)}
@@ -180,6 +185,7 @@ const DashbordPage = () => {
               )}
             </tbody>
           </table>
+        </div>
         </div>
       </div>
     </>

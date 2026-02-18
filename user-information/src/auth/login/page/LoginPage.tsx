@@ -68,8 +68,9 @@ const LoginPage = () => {
         transition={Bounce}
       />
 
-      <div className="d-flex h-100 w-100 bg-ccc ">
-        <div className="font-serif  w-55 h-73 py-5 bg-image">
+      <div className="center-all ">
+        <div className="d-flex bg-darker container">
+        <div className="font-serif bg-image d-image-none">
           <div className="text-center">
             <h1 className="text-color">Get Start</h1>
             <h3 className="text-color-sm">You don't have an account..!</h3>
@@ -85,8 +86,8 @@ const LoginPage = () => {
         </div>
 
         <div className="col-md-6 d-flex justify-content-center align-items-center">
-          <div className="card shadow p-4 w-75 ">
-            <h3 className="text-center mb-4">Login Here</h3>
+          <div className="p-4 w-75 ">
+            <h3 className="text-center mb-4 font-serif text-title">Login Here</h3>
 
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
@@ -97,7 +98,7 @@ const LoginPage = () => {
                   value={values.email}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className="form-control"
+                  className="form-input form-control"
                 />
                 {errors.email && touched.email && (
                   <small className="text-danger">{errors.email}</small>
@@ -112,7 +113,7 @@ const LoginPage = () => {
                   value={values.password}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className="form-control"
+                  className="form-input form-control"
                 />
                 {errors.password && touched.password && (
                   <small className="text-danger">{errors.password}</small>
@@ -122,7 +123,7 @@ const LoginPage = () => {
               <button type="submit" className="btn btn-primary w-100">
                 Login
               </button>
-              <p className="text-center">
+              <p className="text-center text-white">
                 Don't have an account !{" "}
                 <a href="/auth/register" className="text-decoration-none">
                   {" "}
@@ -132,6 +133,7 @@ const LoginPage = () => {
             </form>
           </div>
         </div>
+      </div>
       </div>
     </>
   );

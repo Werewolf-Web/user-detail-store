@@ -2,7 +2,6 @@ export interface tableDataType {
   id: string;
   name: string;
   email: string;
-  address: string;
   phone_no: number | string;
   is_view?:boolean,
 

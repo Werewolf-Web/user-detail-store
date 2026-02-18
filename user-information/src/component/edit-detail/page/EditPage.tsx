@@ -133,16 +133,18 @@ const EditPage = () => {
 
   return (
     <>
-      <h1>Editing User ID: {id}</h1>
+      
       {userData && (
         <form onSubmit={handleSubmit}>
-          <div className="container bg-ccc mb-5">
+          <div className=" ">
+            <div className=" bg-darker-edit1 container">
             {/* Personal Details */}
             <div>
-              <p className="bg-title">Personal Detail :</p>
+              <h1 className="text-white">Editing User ID: {id}</h1>
+              <p className="bg-title ">Personal Detail :</p>
               <div className="d-flex gap-5">
                 <div>
-                  <label className="bg-lable">First Name *</label>
+                  <label className="text-lable bg-lable">First Name *</label>
                   <br />
                   <input
                     name="name"
@@ -157,7 +159,7 @@ const EditPage = () => {
                   )}
                 </div>
                 <div>
-                  <label className="bg-lable">Last Name *</label>
+                  <label className="text-lable bg-lable">Last Name *</label>
                   <br />
                   <input
                     name="last_name"
@@ -175,7 +177,7 @@ const EditPage = () => {
 
               <div className="d-flex gap-5">
                 <div>
-                  <label className="bg-lable">Email *</label>
+                  <label className="text-lable bg-lable">Email *</label>
                   <br />
                   <input
                     name="email"
@@ -190,7 +192,7 @@ const EditPage = () => {
                   )}
                 </div>
                 <div>
-                  <label className="bg-lable">Phone Number *</label>
+                  <label className="text-lable bg-lable">Phone Number *</label>
                   <br />
                   <input
                     name="phone_no"
@@ -208,7 +210,7 @@ const EditPage = () => {
 
               <div className="d-flex gap-5">
                 <div>
-                  <label className="bg-lable">Birth Date *</label>
+                  <label className="text-lable bg-lable">Birth Date *</label>
                   <br />
                   <input
                     name="bdate"
@@ -224,19 +226,20 @@ const EditPage = () => {
                 </div>
                 <div className="form-row">
                   <div className="form-group">
-                    <label className="bg-lable">Gender *</label>
+                    <label className="text-lable bg-lable ">Gender *</label>
                     <div className="radio-group">
                       <label>
                         <input
                           type="radio"
                           name="gender"
+                          
                           value="male"
                           checked={values.gender === "male"}
                           onChange={handleChange}
                           onBlur={handleBlur}
-                        />{" "}
-                        Male
-                      </label>
+                        />{"  "}
+                       <label className="text-white">Male </label> 
+                      </label>{" "}
                       <label>
                         <input
                           type="radio"
@@ -252,7 +255,7 @@ const EditPage = () => {
                   </div>
                 </div>
                 <div>
-                  <label className="bg-lable">Age *</label>
+                  <label className="text-lable bg-lable">Age *</label>
                   <br />
                   <input
                     name="age"
@@ -270,13 +273,13 @@ const EditPage = () => {
 
               <div className="d-flex gap-5">
                 <div>
-                  <label className="bg-lable">Address *</label>
+                  <label className="text-lable bg-lable">Address *</label>
                   <br />
                   <textarea
                     name="address"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className="for-input form-control"
+                    className="for-input form-control "
                     value={values.address}
                   />
                   {errors.address && touched.address && (
@@ -284,7 +287,7 @@ const EditPage = () => {
                   )}
                 </div>
                 <div>
-                  <label className="bg-lable">City *</label>
+                  <label className="text-lable bg-lable">City *</label>
                   <br />
                   <input
                     name="city"
@@ -302,7 +305,7 @@ const EditPage = () => {
 
               <div className="d-flex gap-5">
                 <div>
-                  <label className="bg-lable">State *</label>
+                  <label className="text-lable bg-lable">State *</label>
                   <br />
                   <input
                     name="state"
@@ -317,7 +320,7 @@ const EditPage = () => {
                   )}
                 </div>
                 <div>
-                  <label className="bg-lable">Pincode *</label>
+                  <label className="text-lable bg-lable">Pincode *</label>
                   <br />
                   <input
                     name="pincode"
@@ -332,7 +335,7 @@ const EditPage = () => {
                   )}
                 </div>
                 <div>
-                  <label className="bg-lable">Country *</label>
+                  <label className="text-lable bg-lable">Country *</label>
                   <br />
                   <select
                     name="country"
@@ -355,7 +358,7 @@ const EditPage = () => {
               <p className="bg-title">Parent's Detail :</p>
               <div className="d-flex gap-5">
                 <div>
-                  <label className="bg-lable">Father Name *</label>
+                  <label className="text-lable bg-lable">Father Name *</label>
                   <br />
                   <input
                     name="father_name"
@@ -370,7 +373,7 @@ const EditPage = () => {
                   )}
                 </div>
                 <div>
-                  <label className="bg-lable">Birth Date *</label>
+                  <label className="text-lable bg-lable">Birth Date *</label>
                   <br />
                   <input
                     name="father_dob"
@@ -385,7 +388,7 @@ const EditPage = () => {
                   )}
                 </div>
                 <div>
-                  <label className="bg-lable">Age *</label>
+                  <label className="text-lable bg-lable">Age *</label>
                   <br />
                   <input
                     name="father_age"
@@ -403,7 +406,7 @@ const EditPage = () => {
 
               <div className="d-flex gap-5">
                 <div>
-                  <label className="bg-lable">Mother Name *</label>
+                  <label className="text-lable bg-lable">Mother Name *</label>
                   <br />
                   <input
                     name="mother_name"
@@ -418,7 +421,7 @@ const EditPage = () => {
                   )}
                 </div>
                 <div>
-                  <label className="bg-lable">Birth Date *</label>
+                  <label className="text-lable bg-lable">Birth Date *</label>
                   <br />
                   <input
                     name="mother_dob"
@@ -433,7 +436,7 @@ const EditPage = () => {
                   )}
                 </div>
                 <div>
-                  <label className="bg-lable">Age *</label>
+                  <label className="text-lable bg-lable">Age *</label>
                   <br />
                   <input
                     name="mother_age"
@@ -455,7 +458,7 @@ const EditPage = () => {
               <p className="bg-title">Education Detail :</p>
               <div className="d-flex gap-5">
                 <div>
-                  <label className="bg-lable">School Name *</label>
+                  <label className="text-lable bg-lable">School Name *</label>
                   <br />
                   <input
                     name="school_name"
@@ -470,7 +473,7 @@ const EditPage = () => {
                   )}
                 </div>
                 <div>
-                  <label className="bg-lable">Passing Year *</label>
+                  <label className="text-lable bg-lable">Passing Year *</label>
                   <br />
                   <input
                     name="school_year"
@@ -487,7 +490,7 @@ const EditPage = () => {
               </div>
 
               <div>
-                <label className="bg-lable">Standard *</label>
+                <label className="text-lable bg-lable">Standard *</label>
                 <br />
                 <select
                   name="standard"
@@ -503,7 +506,7 @@ const EditPage = () => {
 
               <div className="d-flex gap-5">
                 <div>
-                  <label className="bg-lable">College Name *</label>
+                  <label className="text-lable bg-lable">College Name *</label>
                   <br />
                   <input
                     name="collage_name"
@@ -518,7 +521,7 @@ const EditPage = () => {
                   )}
                 </div>
                 <div>
-                  <label className="bg-lable">Passing Year *</label>
+                  <label className="text-lable bg-lable">Passing Year *</label>
                   <br />
                   <input
                     name="collage_year"
@@ -535,7 +538,7 @@ const EditPage = () => {
               </div>
 
               <div>
-                <label className="bg-lable">Degree *</label>
+                <label className="text-lable bg-lable">Degree *</label>
                 <br />
                 <select
                   name="degree"
@@ -557,7 +560,7 @@ const EditPage = () => {
               <p className="bg-title">Bank Detail :</p>
               <div className="d-flex gap-5">
                 <div>
-                  <label className="bg-lable">Account Name *</label>
+                  <label className="text-lable bg-lable">Account Name *</label>
                   <br />
                   <input
                     name="account_name"
@@ -575,7 +578,7 @@ const EditPage = () => {
 
               <div className="d-flex gap-5">
                 <div>
-                  <label className="bg-lable">Account No. *</label>
+                  <label className="text-lable bg-lable">Account No. *</label>
                   <br />
                   <input
                     name="accoount_no"  // Keep typo to match type
@@ -590,7 +593,7 @@ const EditPage = () => {
                   )}
                 </div>
                 <div>
-                  <label className="bg-lable">Ifsc Code *</label>
+                  <label className="text-lable bg-lable">Ifsc Code *</label>
                   <br />
                   <input
                     name="ifsc_code"
@@ -608,7 +611,7 @@ const EditPage = () => {
 
               <div className="d-flex gap-5">
                 <div>
-                  <label className="bg-lable">Account Type *</label>
+                  <label className="text-lable bg-lable">Account Type *</label>
                   <br />
                   <input
                     name="account_type"
@@ -623,7 +626,7 @@ const EditPage = () => {
                   )}
                 </div>
                 <div>
-                  <label className="bg-lable">Bank Name *</label>
+                  <label className="text-lable bg-lable">Bank Name *</label>
                   <br />
                   <input
                     name="bank_name"
@@ -645,7 +648,7 @@ const EditPage = () => {
               <p className="bg-title">Job Detail :</p>
               <div className="d-flex gap-5">
                 <div>
-                  <label className="bg-lable">Company Name *</label>
+                  <label className="text-lable bg-lable">Company Name *</label>
                   <br />
                   <input
                     name="company_name"
@@ -660,7 +663,7 @@ const EditPage = () => {
                   )}
                 </div>
                 <div>
-                  <label className="bg-lable">Address *</label>
+                  <label className="text-lable bg-lable">Address *</label>
                   <br />
                   <textarea
                     name="company_address"
@@ -677,7 +680,7 @@ const EditPage = () => {
 
               <div className="d-flex gap-5">
                 <div>
-                  <label className="bg-lable">Joining Date *</label>
+                  <label className="text-lable bg-lable">Joining Date *</label>
                   <br />
                   <input
                     name="jooining_date"   // Keep typo to match type
@@ -692,7 +695,7 @@ const EditPage = () => {
                   )}
                 </div>
                 <div>
-                  <label className="bg-lable">Salary *</label>
+                  <label className="text-lable bg-lable">Salary *</label>
                   <br />
                   <input
                     name="salary"
@@ -713,25 +716,28 @@ const EditPage = () => {
             <div>
               <p className="bg-title">Document's upload :</p>
               <div>
-                <label>ADHAR CARD : </label>
+                <label className="text-white">ADHAR CARD : </label>{" "}
                 <input
                   type="file"
+                   className="for-input form-control"
                   name="adhar_card_url"
             
                 />
                 <br />
 
-                <label>PAN CARD : </label>
+                <label className="text-white">PAN CARD : </label>{" "}
                 <input
+                 className="for-input form-control"
                   type="file"
                   name="pan_card_url"
                
                 />
                 <br />
 
-                <label>VOTING CARD : </label>
+                <label className="text-white">VOTING CARD : </label>{" "}
                 <input
                   type="file"
+                   className="for-input form-control"
                   name="voting_card_url"
                 />
               </div>
@@ -750,6 +756,7 @@ const EditPage = () => {
                 Submit
               </button>
             </div>
+          </div>
           </div>
         </form>
       )}
