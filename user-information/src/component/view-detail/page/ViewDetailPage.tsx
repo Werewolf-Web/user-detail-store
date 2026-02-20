@@ -40,6 +40,7 @@ const ViewDetailPage = () => {
 
             <div className="">
                 <div className=" bg-darker-edit1 container">
+                    {/* print button */}
                 <div className="d-flex justify-content-between align-items-center no-print mb-2">
                     <div>
 
@@ -196,6 +197,7 @@ const ViewDetailPage = () => {
                             </div>
                         </div>
                     </div>
+                    {/* Parent's Details */}
                     <div>
                         <p className="bg-title">Parent's Detail :</p>
                         <div className="d-flex gap-5">

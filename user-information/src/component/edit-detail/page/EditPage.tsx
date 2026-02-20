@@ -41,11 +41,11 @@ const EditPage = () => {
     account_name: "",
     account_type: "",
     bank_name: "",
-    accoount_no: "",         // Note: typo in field name – keep consistent with your type
+    accoount_no: "",        
     ifsc_code: "",
     company_name: "",
     company_address: "",
-    jooining_date: "",        // Note: typo in field name – keep consistent
+    jooining_date: "",  
     salary: "",
     adhar_card_url: "",
     pan_card_url: "",
@@ -114,8 +114,8 @@ const EditPage = () => {
         const res = await fetch(`${REGISTER_API}/register?id=${id}`);
         const data: UsersDetail[] = await res.json();
         if (data.length > 0) {
-          setUserData(data[0]);               // Store first (and only) user
-          setValues(data[0]);                  // Populate form with fetched data
+          setUserData(data[0]);            
+          setValues(data[0]);              
         }
       } catch (error) {
         console.error("API Error:", error);
