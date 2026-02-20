@@ -2,12 +2,22 @@ import { Bounce, toast, ToastContainer } from "react-toastify";
 import "../../../../public/assets/styles/main.css";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import { loginSchema, type Loginform } from "../core/_module";
+import type { Loginform } from "../core/_module";
+import * as Yup from "yup";
 
 const initialValues: Loginform = {
   email: "",
   password: "",
 };
+
+const loginSchema = Yup.object({
+  email: Yup.string()
+    .email("Invalid email format")
+    .required("Please enter your email"),
+  password: Yup.string()
+    .min(6, "Password must be at least 6 characters")
+    .required("Please enter your password"),
+});
 
 const REGISTER_API = import.meta.env.VITE_REGISTER_API;
 // console.log(REGISTER_API);

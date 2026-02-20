@@ -301,3 +301,9 @@ textarea.for-input {
        flex-wrap: wrap;
     }
 }
+@media (max-width: 1410px) {
+   .for-input {
+       width: -webkit-fill-available;
+       flex-wrap: wrap;
+    }
+}
